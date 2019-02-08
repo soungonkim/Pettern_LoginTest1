@@ -1,4 +1,5 @@
 package com.example.pettern_logintest1;
+
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class RegisterActivity extends AppCompatActivity {
     private String confirmPassword;
     private String fullName;
     private ProgressDialog pDialog;
-    private String register_url = "http://192.168.0.13/member/register.php";
+    private String register_url = "http://192.168.0.13/members/register.php";
     private SessionHandler session;
 
     @Override
@@ -41,13 +42,13 @@ public class RegisterActivity extends AppCompatActivity {
         session = new SessionHandler(getApplicationContext());
         setContentView(R.layout.activity_register);
 
-        etUsername = findViewById(R.id.ettUsername);
-        etPassword = findViewById(R.id.ettPassword);
-        etConfirmPassword = findViewById(R.id.ettConfirmPassword);
-        etFullName = findViewById(R.id.ettFullName);
+        etUsername = findViewById(R.id.etUsername);
+        etPassword = findViewById(R.id.etPassword);
+        etConfirmPassword = findViewById(R.id.etConfirmPassword);
+        etFullName = findViewById(R.id.etFullName);
 
-        Button login = findViewById(R.id.bttnRegisterLogin);
-        Button register = findViewById(R.id.bttnRegister);
+        Button login = findViewById(R.id.btnRegisterLogin);
+        Button register = findViewById(R.id.btnRegister);
 
         //Launch Login screen when Login Button is clicked
         login.setOnClickListener(new View.OnClickListener() {

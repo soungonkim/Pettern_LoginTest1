@@ -7,42 +7,33 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 
-// https://android--examples.blogspot.com/2017/02/android-volley-singleton-pattern-example.html
-
-
 public class MySingleton {
     private static MySingleton mInstance;
     private RequestQueue mRequestQueue;
-    private static Context mContext;
+    private static Context mCtx;
 
     private MySingleton(Context context) {
-        // Specify the application context
-        mContext = context;
-        // Get the request queue
+        mCtx = context;
         mRequestQueue = getRequestQueue();
     }
 
     public static synchronized MySingleton getInstance(Context context) {
-        // If Instance is null then initialize new Instance
         if (mInstance == null) {
             mInstance = new MySingleton(context);
         }
-        // Return MySingleton new Instance
         return mInstance;
     }
 
-    public RequestQueue getRequestQueue() {
-        // If RequestQueue is null the initialize new RequestQueue
+    private RequestQueue getRequestQueue() {
         if (mRequestQueue == null) {
-            mRequestQueue = Volley.newRequestQueue(mContext.getApplicationContext());
+            // getApplicationContext() is key, it keeps you from leaking the
+            // Activity or BroadcastReceiver if someone passes one in.
+            mRequestQueue = Volley.newRequestQueue(mCtx.getApplicationContext());
         }
-
-        // Return RequestQueue
         return mRequestQueue;
     }
 
-    public <T> void addToRequestQueue(Request<T> request) {
-        // Add the specified request to the request queue
-        getRequestQueue().add(request);
+    public <T> void addToRequestQueue(Request<T> req) {
+        getRequestQueue().add(req);
     }
 }

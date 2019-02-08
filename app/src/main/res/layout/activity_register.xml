@@ -23,7 +23,7 @@
 
 
     <EditText
-        android:id="@+id/ettFullName"
+        android:id="@+id/etFullName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -33,7 +33,7 @@
         android:padding="10dp" />
 
     <EditText
-        android:id="@+id/ettUsername"
+        android:id="@+id/etUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -44,7 +44,7 @@
 
 
     <EditText
-        android:id="@+id/ettPassword"
+        android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -54,7 +54,7 @@
         android:padding="10dp" />
 
     <EditText
-        android:id="@+id/ettConfirmPassword"
+        android:id="@+id/etConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -64,7 +64,7 @@
         android:padding="10dp" />
 
     <Button
-        android:id="@+id/bttnRegister"
+        android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -81,7 +81,7 @@
         android:textColor="#ccc" />
 
     <Button
-        android:id="@+id/bttnRegisterLogin"
+        android:id="@+id/btnRegisterLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"

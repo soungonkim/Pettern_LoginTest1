@@ -2,6 +2,7 @@ package com.example.pettern_logintest1;
 
 import java.util.Date;
 
+
 public class User {
     String username;
     String fullName;
@@ -31,4 +32,3 @@ public class User {
         return sessionExpiryDate;
     }
 }
-

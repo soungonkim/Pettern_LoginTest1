@@ -1,9 +1,8 @@
 package com.example.pettern_logintest1;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +16,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.jar.JarException;
-
 public class MainActivity extends AppCompatActivity {
     private static final String KEY_STATUS = "status";
     private static final String KEY_MESSAGE = "message";
@@ -31,16 +28,15 @@ public class MainActivity extends AppCompatActivity {
     private String username;
     private String password;
     private ProgressDialog pDialog;
-    private String login_url = "http://192.168.0.13/member/login.php";
+    private String login_url = "http://192.168.0.13/members/login.php";
     private SessionHandler session;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         session = new SessionHandler(getApplicationContext());
 
-        if (session.isLoggedIn()) {
+        if(session.isLoggedIn()){
             loadDashboard();
         }
         setContentView(R.layout.activity_main);
@@ -117,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
                             //Check if user got logged in successfully
 
                             if (response.getInt(KEY_STATUS) == 0) {
-                                session.loginUser(username, response.getString(KEY_FULL_NAME));
+                                session.loginUser(username,response.getString(KEY_FULL_NAME));
                                 loadDashboard();
 
-                            } else {
+                            }else{
                                 Toast.makeText(getApplicationContext(),
                                         response.getString(KEY_MESSAGE), Toast.LENGTH_SHORT).show();
 
@@ -148,16 +144,15 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * Validates inputs and shows error if any
-     *
      * @return
      */
     private boolean validateInputs() {
-        if (KEY_EMPTY.equals(username)) {
+        if(KEY_EMPTY.equals(username)){
             etUsername.setError("Username cannot be empty");
             etUsername.requestFocus();
             return false;
         }
-        if (KEY_EMPTY.equals(password)) {
+        if(KEY_EMPTY.equals(password)){
             etPassword.setError("Password cannot be empty");
             etPassword.requestFocus();
             return false;
